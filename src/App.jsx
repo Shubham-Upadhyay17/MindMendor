@@ -8,10 +8,19 @@ import Therapistlogin from "./components/authentication/Therapist/Therapistlogin
 
 import Adminhome from "./admin/components/Adminhome";
 import Login from "./admin/components/Login";
-import Register from "./admin/components/Register"
-import Adminui from "./admin/components/Adminui"
+import Register from "./admin/components/Register";
+import Adminui from "./admin/components/Adminui";
 import Therapistlist from "./components/Therapistlist";
 
+import { ToastContainer } from "react-toastify";
+import TherapistDashboardLayout from "./Therapist/_components/TherapistDashboardLayout";
+import TherapistDashboard from "./Therapist/_components/Dashboard/TherapistDashboard";
+import Account from "./Therapist/_components/Dashboard/Account";
+import Notification from "./Therapist/_components/Dashboard/Notification";
+import Appointments from "./Therapist/_components/Dashboard/Appointments";
+import Earnings from "./Therapist/_components/Dashboard/Earnings";
+import Patients from "./Therapist/_components/Dashboard/Patients";
+import Help from "./Therapist/_components/Dashboard/Help";
 
 function App() {
   const router = createBrowserRouter([
@@ -43,6 +52,10 @@ function App() {
       path: "/MindMendor/therapistregister",
       element: <Therapistregister />,
     },
+    // {
+    //   path: "/MindMendor/therapist/Home",
+    //   element: <TherapistDashboardLayout />,
+    // },
 
     {
       path: "/MindMendor/admin/",
@@ -60,9 +73,48 @@ function App() {
       path: "/MindMendor/admin/register",
       element: <Register />,
     },
+    {
+      path: "/MindMendor/therapist/",
+      element: <TherapistDashboardLayout />,
+      children: [
+        {
+          index: true,
+          element: <TherapistDashboard />
+        },
+        {
+          path: "account",
+          element: <Account />
+        },
+        {
+          path: "appointments",
+          element: <Appointments />
+        },
+        {
+          path: "earnings",
+          element: <Earnings />
+        },
+        {
+          path: "alerts",
+          element: <Notification />
+        },
+        {
+          path: "patients",
+          element: <Patients />
+        },
+        {
+          path: "help",
+          element: <Help />
+        },
+      ]
+    },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </>
+  );
 }
 
 export default App;

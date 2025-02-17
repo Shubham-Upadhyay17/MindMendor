@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/images/logo1.png";
 import avatar from "../../assets/images/avatar.jpg";
+import botavatar from "../../assets/images/avatars/bot.jpg";
 import "../css/ui.css";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { IoMdMic } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { auth, firestore } from "../../Database/Firebase"; // ✅ Import Firestore & Auth
+import { doc, getDoc } from "firebase/firestore"; // ✅ Import Firestore function
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 function UI() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
+  const [username, setUsername] = useState("User");
+
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setShowDropdown(!showDropdown);
@@ -16,6 +24,41 @@ function UI() {
 
   const handleClick2 = () => {
     setShowDropdown2(!showDropdown2);
+  };
+
+  useEffect(() => {
+    const fetchUserData = async (uid) => {
+      try {
+        const userRef = doc(firestore, "Users", uid); // Reference to Firestore document
+        const userSnap = await getDoc(userRef);
+
+        if (userSnap.exists()) {
+          setUsername(userSnap.data().name); // ✅ Update username from Firestore
+        } else {
+          console.log("No such user document!");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetchUserData(user.uid); // Fetch Firestore data for logged-in user
+      } else {
+        setUsername("Guest"); // Default if no user is logged in
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup listener on unmount
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth); // Sign out from Firebase
+      navigate("/MindMendor/"); // Redirect to login page
+    } catch (error) {
+      console.error("Logout Error:", error.message);
+    }
   };
 
   const jokes = [
@@ -31,10 +74,11 @@ function UI() {
   return (
     <div className="bg-[#0c0f0a] w-screen h-screen">
       <div className="header py-3 px-20 flex justify-between align-center border-b-[0.5px] border-indigo-500">
-        <a className="hover:bg-sky-00">
+        <Link className="hover:bg-sky-00">
           <img src={logo} className="w-40" alt="" />
-        </a>
-        <div className=" relative menu flex items-center justify-between px-4 w-auto">
+        </Link>
+        <div className=" relative menu flex items-center gap-3 justify-between px-4 w-auto">
+          <p className="text-white">Welcome, {username}</p>
           <button onClick={handleClick} className="">
             <img
               src={avatar}
@@ -47,9 +91,9 @@ function UI() {
               <ul className="profile-ul flex flex-col gap-3 px-2 rounded py-2">
                 <li className="cursor-pointer px-3">Edit</li>
                 <li className="cursor-pointer border-b-1 px-3">Duplicate</li>
-                <a href="/MindMendor/" className="anc">
+                <Link onClick={handleLogout} className="anc">
                   <li className="cursor-pointer px-3">Log out</li>
-                </a>
+                </Link>
               </ul>
             </div>
           )}
@@ -99,7 +143,7 @@ function UI() {
                   <Link to="/MindMendor/therapists">Therapy Session</Link>
                 </li>
                 <li className="cursor-pointer border-b-1 px-3 hover:text-blue-600">
-                  <a href="">Anonymous Conversation</a>
+                  <Link to="">Anonymous Conversation</Link>
                 </li>
               </ul>
             </div>
@@ -111,7 +155,7 @@ function UI() {
               <img src={avatar} className="w-10 h-10 rounded-full" alt="" />
             </div>
             <div className="bot flex justify-start items-top gap-10">
-              <img src={avatar} className="w-10 h-10 rounded-full" alt="" />
+              <img src={botavatar} className="w-10 h-10 rounded-full" alt="" />
               <div className="glass-effect">
                 <p className="mb-2">
                   Sure! Here are a few jokes for you: <br />
