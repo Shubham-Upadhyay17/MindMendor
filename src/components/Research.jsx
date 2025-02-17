@@ -2,7 +2,7 @@ import React from "react";
 import research from "../assets/research.pdf";
 function Research() {
   return (
-    <div className="researchpapr text-white px-40 py-10 bg-[#29292c]">
+    <div className="researchpapr text-white px-10 md:px-40 py-10 bg-[#29292c]">
       <p className="font-semibold text-3xl text-center mb-9">
         Research <span className="text-[#1479EA]">Paper</span>
       </p>

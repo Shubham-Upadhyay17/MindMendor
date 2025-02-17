@@ -50,7 +50,7 @@ function Therapistregister() {
   };
 
   return (
-    <div>
+    <div className="">
       <Authenticateheader />
       {loading && (
         <div className="fixed top-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 py-2 px-6 rounded-lg flex flex-col items-center z-50">
@@ -58,11 +58,11 @@ function Therapistregister() {
           <p className="text-white mt-2">Processing...</p>
         </div>
       )}
-      <div className="bg-[#212121] text-white px-40 py-10 flex flex-col justify-center items-center">
+      <div className="bg-[#212121] h-screen text-white px-10 md:px-40 py-10 flex flex-col justify-center items-center">
         <p className="font-semibold text-3xl text-center mb-1">
           Therapist <span className="text-[#1479EA]">Registration</span>
         </p>
-        <div className="container text-justify lg:px-40 py-8 w-[60%] flex flex-col gap-15 justify-center items-center">
+        <div className="container text-justify lg:px-40 py-8 w-[100%] md:w-[60%] flex flex-col gap-15 justify-center items-center">
           <form
             className="box form__group field py-10 px-10 w-full flex flex-col gap-14"
             onSubmit={handleTherapistRegister}

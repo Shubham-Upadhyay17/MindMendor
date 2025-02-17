@@ -47,11 +47,11 @@ function UserLogin() {
         </div>
       )}
 
-      <div className="bg-[#212121] text-white h-[90vh] px-40 py-10 flex flex-col justify-center items-center">
+      <div className="bg-[#212121] text-white h-screen px-10 md:px-40 py-10 flex flex-col justify-center items-center">
         <p className="font-semibold text-3xl text-center mb-1">
           User <span className="text-[#1479EA]">Login</span>
         </p>
-        <div className="container text-justify lg:px-40 py-8 w-[60%] flex flex-col gap-15 justify-center items-center">
+        <div className="container text-justify lg:px-40 py-8 w-[100%] md:w-[60%] flex flex-col gap-15 justify-center items-center">
           <form
             className="box form__group field py-10 px-10 w-full flex flex-col gap-14"
             onSubmit={handleLogin}

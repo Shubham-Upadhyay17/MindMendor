@@ -28,7 +28,7 @@ function Logincontainers() {
       <p className="font-semibold text-3xl text-center mb-9">
         You can login or <span className="text-[#1479EA]">register</span> here
       </p>
-      <div className="container my-3 flex justify-center gap-56 items-center text-center">
+      <div className="container my-3 flex justify-center gap-20 md:gap-56 items-center text-center">
         <div className="login-container">
           <p className="login-heading text-2xl font-semibold mb-4">
             For <span className="text-[#1479EA]">User</span>
