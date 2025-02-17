@@ -45,7 +45,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     if (location.pathname === "/MindMendor/") {
       setIsOpen(false);
       window.scroll({
-        top: 1400, // Scroll vertically to 100 pixels
+        top: 1500, // Scroll vertically to 100 pixels
         left: 0, // Don't change horizontal position
         behavior: "smooth", // Smooth scroll
       }); // Delay to allow page transition
@@ -53,7 +53,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
       navigate("/MindMendor/"); // Redirect to home
       setTimeout(() => {
-        window.scrollTo({ top: 1400, behavior: "smooth" }); // Scroll down smoothly
+        window.scrollTo({ top: 1500, behavior: "smooth" }); // Scroll down smoothly
       }, 100); // Normal About Us navigation
     }
   };
@@ -63,7 +63,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     if (location.pathname === "/MindMendor/") {
       setIsOpen(false);
       window.scroll({
-        top: 600, // Scroll vertically to 100 pixels
+        top: 700, // Scroll vertically to 100 pixels
         left: 0, // Don't change horizontal position
         behavior: "smooth", // Smooth scroll
       }); // Delay to allow page transition
@@ -71,7 +71,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
       navigate("/MindMendor/"); // Redirect to home
       setTimeout(() => {
-        window.scrollTo({ top: 600, behavior: "smooth" }); // Scroll down smoothly
+        window.scrollTo({ top: 700, behavior: "smooth" }); // Scroll down smoothly
       }, 100); // Normal About Us navigation
     }
   };
@@ -82,7 +82,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     if (location.pathname === "/MindMendor/") {
       setIsOpen(false);
       window.scroll({
-        top: 2500, // Scroll vertically to 100 pixels
+        top: 2600, // Scroll vertically to 100 pixels
         left: 0, // Don't change horizontal position
         behavior: "smooth", // Smooth scroll
       }); // Delay to allow page transition
@@ -90,7 +90,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
       navigate("/MindMendor/"); // Redirect to home
       setTimeout(() => {
-        window.scrollTo({ top: 2500, behavior: "smooth" }); // Scroll down smoothly
+        window.scrollTo({ top: 2600, behavior: "smooth" }); // Scroll down smoothly
       }, 100); // Normal About Us navigation
     }
   };
