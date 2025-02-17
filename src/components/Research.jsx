@@ -24,7 +24,7 @@ function Research() {
           continue pushing boundaries and using AI to make a real difference!
         </p>
         <div className="flex justify-center mt-12 mb-9">
-          <iframe className="h-[400px]" src={research} frameBorder="0"></iframe>
+        <iframe className="h-[400px] border-none" src={research}></iframe>
         </div>
       </div>
     </div>

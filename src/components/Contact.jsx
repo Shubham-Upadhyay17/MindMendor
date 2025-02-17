@@ -3,7 +3,7 @@ import "./css/contact.css";
 
 function Contact() {
   return (
-    <div className="bg-[#29292c] text-white px-20 md:px-40 py-10 flex flex-col justify-center items-center">
+    <div className="bg-[#29292c] text-white px-2 md:px-40 py-10 flex flex-col justify-center items-center">
       <p className="font-semibold text-3xl text-center mb-1">
         Contact <span className="text-[#1479EA]">Us</span>
       </p>

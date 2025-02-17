@@ -52,7 +52,7 @@ function About() {
     },
   ];
   return (
-    <div className="about text-white px-10 md:px-40 py-10 bg-[#212121]">
+    <div className="about text-white px-2 md:px-40 py-10 bg-[#212121]">
       <p className="font-semibold text-3xl text-center mb-9">
         Who WE <span className="text-[#1479EA]">Are</span>
       </p>
@@ -80,7 +80,7 @@ function About() {
                 </span>
               </div>
               <div className="bg-white w-full h-px mb-4"></div>
-              <p className="text-sm mb-4">{member.description}</p>
+              <p className="text-sm mb-4 text-justify">{member.description}</p>
               <p className="text-sm italic text-blue-800 mb-4">
                 "{member.quote}"
               </p>

@@ -121,17 +121,25 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-gray-900 shadow-md" : "bg-transparent"
-      } ${isOpen ? "bg-gray-900" : "bg-transparent"}`}
+        isScrolled || isOpen ? "bg-gray-900 shadow-md" : "bg-transparent"
+      }`}
     >
       <div className="px-4 py-2 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">

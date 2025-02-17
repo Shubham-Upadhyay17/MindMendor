@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const MobileDrawer = ({ isOpen, setIsOpen }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -14,7 +15,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     if (location.pathname === "/MindMendor/") {
       setIsOpen(false);
       window.scroll({
-        top: 5000, // Scroll vertically to 100 pixels
+        top: 5200, // Scroll vertically to 100 pixels
         left: 0, // Don't change horizontal position
         behavior: "smooth", // Smooth scroll
       }); // Delay to allow page transition
@@ -22,7 +23,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
       navigate("/MindMendor/"); // Redirect to home
       setTimeout(() => {
-        window.scrollTo({ top: 5000, behavior: "smooth" }); // Scroll down smoothly
+        window.scrollTo({ top: 5200, behavior: "smooth" }); // Scroll down smoothly
       }, 100); // Normal About Us navigation
     }
   };
@@ -62,7 +63,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     if (location.pathname === "/MindMendor/") {
       setIsOpen(false);
       window.scroll({
-        top: 900, // Scroll vertically to 100 pixels
+        top: 600, // Scroll vertically to 100 pixels
         left: 0, // Don't change horizontal position
         behavior: "smooth", // Smooth scroll
       }); // Delay to allow page transition
@@ -70,7 +71,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
       navigate("/MindMendor/"); // Redirect to home
       setTimeout(() => {
-        window.scrollTo({ top: 900, behavior: "smooth" }); // Scroll down smoothly
+        window.scrollTo({ top: 600, behavior: "smooth" }); // Scroll down smoothly
       }, 100); // Normal About Us navigation
     }
   };
@@ -81,7 +82,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     if (location.pathname === "/MindMendor/") {
       setIsOpen(false);
       window.scroll({
-        top: 2400, // Scroll vertically to 100 pixels
+        top: 2500, // Scroll vertically to 100 pixels
         left: 0, // Don't change horizontal position
         behavior: "smooth", // Smooth scroll
       }); // Delay to allow page transition
@@ -89,7 +90,7 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
       navigate("/MindMendor/"); // Redirect to home
       setTimeout(() => {
-        window.scrollTo({ top: 2400, behavior: "smooth" }); // Scroll down smoothly
+        window.scrollTo({ top: 2500, behavior: "smooth" }); // Scroll down smoothly
       }, 100); // Normal About Us navigation
     }
   };
@@ -113,11 +114,17 @@ const MobileDrawer = ({ isOpen, setIsOpen }) => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div
-      className={`md:hidden ${
-        isOpen ? "block" : "hidden"
-      } bg-gray-900 w-full h-full`}
+      className={`md:hidden ${isOpen ? "block bg-gray-900 shadow-md" : "hidden"}  w-full h-full`}
     >
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <Link

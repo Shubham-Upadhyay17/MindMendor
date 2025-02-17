@@ -24,11 +24,11 @@ function Logincontainers() {
     navigate(path);
   }
   return (
-    <div className="bg-[#212121] text-white px-40 py-10">
-      <p className="font-semibold text-3xl text-center mb-9">
+    <div className="bg-[#212121] text-white px-2 md:px-40 py-10 overflow-x-hidden">
+      <p className="font-semibold text-xl md:text-3xl text-center mb-9">
         You can login or <span className="text-[#1479EA]">register</span> here
       </p>
-      <div className="container my-3 flex justify-center gap-20 md:gap-56 items-center text-center">
+      <div className="container my-3 flex flex-col md:flex-row justify-center gap-20 md:gap-56 items-center text-center">
         <div className="login-container">
           <p className="login-heading text-2xl font-semibold mb-4">
             For <span className="text-[#1479EA]">User</span>

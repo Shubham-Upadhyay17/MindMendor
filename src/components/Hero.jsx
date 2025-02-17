@@ -11,7 +11,7 @@ function Hero() {
     });
   };
   return (
-    <div className="bg-[#0c0f0a] text-center flex justify-evenly flex-col items-center h-screen">
+    <div className="bg-[#0c0f0a] text-center flex justify-evenly flex-col items-center h-screen overflow-x-hidden">
       <div>
         <p className="text-white font-bold text-3xl my-6">Welcome to</p>
         <p id="title" className="text-white font-bold text-6xl md:text-8xl ">
