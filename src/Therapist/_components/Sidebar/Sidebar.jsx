@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/images/mm.png";
+import logo from "../../../assets/images/mm2.png";
 import {
   BellRing,
   CircleUserRound,
@@ -69,7 +69,7 @@ function Sidebar() {
       <div className="gap-x-3 py-3 px-1 md:px-3">
         <div className="logo flex gap-1 items-center justify-center">
           <Link onClick={handleScrollHome}>
-            <img src={logo} className="h-10 w-10 rounded-full" alt="Aplango" />
+            <img src={logo} className="md:h-20 md:w-20 w-10 h-10 rounded-full" alt="Aplango" />
           </Link>
         </div>
 
