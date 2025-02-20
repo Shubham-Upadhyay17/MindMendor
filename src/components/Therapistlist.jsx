@@ -118,7 +118,7 @@ function Therapistlist() {
             clickable: true,
           }}
           modules={[Keyboard, Scrollbar, Navigation, Pagination]}
-          className="mySwiper container flex flex-wrap justify-center items-center p-10"
+          className="mySwiper container flex flex-wrap justify-center items-center px-2 md:px-10 py-10"
         >
           {therapistItems.map((item, index) => (
             <SwiperSlide className="py-4" key={index}>
@@ -126,7 +126,7 @@ function Therapistlist() {
                 <div className="card">
                   <div className="card-content flex flex-wrap flex-col items-center">
                     <div className="image">
-                      <img src={item.image || "/placeholder.svg"} alt={item.name} />
+                      <img src={item.image || "/placeholder.svg"} alt={item.name} className="" />
                     </div>
                     <div className="media-icons flex flex-col gap-4 items-center justify-center">
                       <i className="fa-brands fa-facebook"></i>
@@ -145,7 +145,7 @@ function Therapistlist() {
                       <i className="fa-regular fa-star"></i>
                     </div>
 
-                    <div className="buttons mt-5 flex gap-2 justify-around">
+                    <div className="buttons mt-2 md:mt-5 flex gap-2 justify-around">
                       <button onClick={() => handleTherapistAboutClick(item)} className="about-me">
                         About Me
                       </button>
