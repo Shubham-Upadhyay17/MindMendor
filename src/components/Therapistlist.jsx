@@ -1,5 +1,4 @@
-import React from "react";
-import "./css/therapistlist.css";
+import "./css/therapistlist.css"
 import avatar1 from "../assets/images/avatars/a1.jpg";
 import avatar2 from "../assets/images/avatars/a2.jpg";
 import avatar3 from "../assets/images/avatars/a3.jpg";
@@ -7,30 +6,41 @@ import avatar4 from "../assets/images/avatars/a4.jpg";
 import avatar5 from "../assets/images/avatars/a5.jpg";
 import avatar6 from "../assets/images/avatars/a6.jpg";
 import avatar7 from "../assets/images/avatars/a7.jpg";
+
+import { useNavigate } from "react-router-dom"
+
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import "swiper/css"
+import "swiper/css/scrollbar"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
-import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
-import Header from "./Header";
-import Footer from "./Footer";
+import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules"
+import Header from "./Header"
+import Footer from "./Footer"
 
 function Therapistlist() {
+  const navigate = useNavigate()
+
+  const handleTherapistAboutClick = (therapist) => {
+    navigate("/MindMendor/Therapist/about", { state: { therapist } })
+  }
+
   const therapistItems = [
     {
       image: avatar1,
       name: "Dr. Shreya Pandit",
       proff: "Psychologist",
+      bio: "Dr. Shreya Pandit is a licensed psychologist with a passion for helping individuals navigate life's challenges with clarity and resilience. Her approach is evidence-based and tailored to each client's unique needs, drawing from cognitive-behavioral therapy (CBT), mindfulness, and trauma-informed care. With 10 years of experience, she specializes in anxiety, depression, relationships, and trauma, providing a supportive and collaborative space for growth and healing.",
     },
     {
       image: avatar2,
       name: "Dr. Emily Carter",
       proff: "Clinical Psychologist",
+      bio: "Dr. Emily Carter is a clinical psychologist with extensive experience in treating mood disorders and anxiety. She employs a combination of psychodynamic therapy and cognitive-behavioral techniques to help her clients achieve lasting change and improved mental health.",
     },
     {
       image: avatar4,
@@ -67,12 +77,15 @@ function Therapistlist() {
       name: "Dr. Maria DeLuca",
       proff: "Substance Abuse Counselor",
     },
-  ];
+
+
+    // ... Add bios for other therapists
+  ]
 
   return (
     <>
       <Header />
-      <div className="therpistlist py-8 px-8 mb-10 bg-[#212121] h-[90vh] w-[100%] gap-10 flex flex-wrap justify-center items-center">
+      <div className="therpistlist py-8 px-8 mb-10 bg-[#212121] h-screen w-[100%] gap-10 flex flex-wrap justify-center items-center">
         <Swiper
           slidesPerView={3}
           centeredSlides={false}
@@ -101,7 +114,7 @@ function Therapistlist() {
                 <div className="card">
                   <div className="card-content flex flex-wrap flex-col items-center">
                     <div className="image">
-                      <img src={item.image} alt={item.name} />
+                      <img src={item.image || "/placeholder.svg"} alt={item.name} />
                     </div>
                     <div className="media-icons flex flex-col gap-4 items-center justify-center">
                       <i className="fa-brands fa-facebook"></i>
@@ -121,7 +134,9 @@ function Therapistlist() {
                     </div>
 
                     <div className="buttons mt-5 flex gap-2 justify-around">
-                      <button className="about-me">About Me</button>
+                      <button onClick={() => handleTherapistAboutClick(item)} className="about-me">
+                        About Me
+                      </button>
                       <button className="hire-me">Hire Me</button>
                     </div>
                   </div>
@@ -133,7 +148,8 @@ function Therapistlist() {
       </div>
       <Footer />
     </>
-  );
+  )
 }
 
-export default Therapistlist;
+export default Therapistlist
+
