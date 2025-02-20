@@ -85,7 +85,7 @@ function Therapistlist() {
   return (
     <>
       <Header />
-      <div className="therpistlist py-8 px-8 mb-10 bg-[#212121] h-screen w-[100%] gap-10 flex flex-wrap justify-center items-center">
+      <div className="therpistlist py-8 px-2 md:px-8 mb-10 bg-[#212121] h-screen w-[100%] gap-10 flex flex-wrap justify-center items-center">
         <Swiper
           slidesPerView={3}
           centeredSlides={false}
