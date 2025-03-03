@@ -21,6 +21,7 @@ import Appointments from "./Therapist/_components/Dashboard/Appointments";
 import Earnings from "./Therapist/_components/Dashboard/Earnings";
 import Patients from "./Therapist/_components/Dashboard/Patients";
 import Help from "./Therapist/_components/Dashboard/Help";
+import TherapistAbout from "./Therapist/_components/TherapistAbout/TherapistAbout";
 
 function App() {
   const router = createBrowserRouter([
@@ -72,6 +73,10 @@ function App() {
     {
       path: "/MindMendor/admin/register",
       element: <Register />,
+    },
+    {
+      path: "/MindMendor/Therapist/about",
+      element: <TherapistAbout />,
     },
     {
       path: "/MindMendor/therapist/",

@@ -9,13 +9,25 @@ import { addDoc, collection, setDoc, doc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { DNA } from "react-loader-spinner";
+import { BadgeCheck, User2Icon } from "lucide-react";
 
 function Therapistregister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [dob, setdob] = useState("");
+  const [gender, setGender] = useState("");
+  const [licenseno, setLicenseno] = useState("");
+  const [licenseissueauth, setLicenseissueauth] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [buttonText, setButtonText] = useState("Upload Profile Photo");
+
+  const handleFileChange = (event) => {
+    if (event.target.files.length > 0) {
+      setButtonText("Done");
+    }
+  };
 
   const handleTherapistRegister = async (e) => {
     e.preventDefault();
@@ -33,6 +45,10 @@ function Therapistregister() {
           email: therapist.email,
           name: name, // ✅ Use the name from state
           phone: phone, // ✅ Store phone number as well
+          dob: dob,
+          gender: gender,
+          licenseno: licenseno,
+          licenseissueauth: licenseissueauth,
         });
       }
       console.log("Therapist registered:", therapist);
@@ -58,7 +74,7 @@ function Therapistregister() {
           <p className="text-white mt-2">Processing...</p>
         </div>
       )}
-      <div className="bg-[#212121] h-screen text-white px-2 md:px-40 py-10 flex flex-col justify-center items-center">
+      <div className="bg-[#212121] text-white px-2 md:px-40 py-14 flex flex-col justify-center items-center">
         <p className="font-semibold text-3xl text-center mb-1">
           Therapist <span className="text-[#1479EA]">Registration</span>
         </p>
@@ -68,6 +84,17 @@ function Therapistregister() {
             onSubmit={handleTherapistRegister}
             method="POST"
           >
+            <div className="relative">
+              <button class="container-btn-file mx-auto hover:border-0">
+                {buttonText=="Done"? <BadgeCheck className="text-[#1479ea]" />: <p className="flex"><User2Icon className="mr-2" /> <span>Upload Profile Photo</span></p> }
+                <input
+                  className="profilephoto"
+                  name="profilephoto"
+                  type="file"
+                  onChange={handleFileChange}
+                />
+              </button>
+            </div>
             <div className="relative">
               <input
                 id="therapistname"
@@ -101,6 +128,54 @@ function Therapistregister() {
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                className="border-b w-full border-gray-300 py-1 focus:border-b-2 focus:border-[#1479EA] transition-colors focus:outline-none peer bg-inherit"
+              />
+            </div>
+            <div className="relative">
+              <input
+                id="dob"
+                name="dob"
+                type="date"
+                placeholder="DD/MM/YYYY"
+                required
+                value={dob}
+                onChange={(e) => setdob(e.target.value)}
+                className="border-b w-full border-gray-300 py-1 focus:border-b-2 focus:border-[#1479EA] transition-colors focus:outline-none peer bg-inherit"
+              />
+            </div>
+            <div className="relative">
+              <input
+                id="gender"
+                name="gender"
+                type="text"
+                placeholder="Gender"
+                required
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                className="border-b w-full border-gray-300 py-1 focus:border-b-2 focus:border-[#1479EA] transition-colors focus:outline-none peer bg-inherit"
+              />
+            </div>
+            <div className="relative">
+              <input
+                id="licenseno"
+                name="licenseno"
+                type="varchar"
+                placeholder="License Number"
+                required
+                value={licenseno}
+                onChange={(e) => setLicenseno(e.target.value)}
+                className="border-b w-full border-gray-300 py-1 focus:border-b-2 focus:border-[#1479EA] transition-colors focus:outline-none peer bg-inherit"
+              />
+            </div>
+            <div className="relative">
+              <input
+                id="licenseissueauth"
+                name="licenseissueauth"
+                type="text"
+                placeholder="License Issuing Authority"
+                required
+                value={licenseissueauth}
+                onChange={(e) => setLicenseissueauth(e.target.value)}
                 className="border-b w-full border-gray-300 py-1 focus:border-b-2 focus:border-[#1479EA] transition-colors focus:outline-none peer bg-inherit"
               />
             </div>
