@@ -1,5 +1,5 @@
-import { BellRing } from "lucide-react";
 import React from "react";
+import { BellRing } from "lucide-react";
 
 function Notification() {
   return (

@@ -18,30 +18,50 @@ function Appointments() {
       email: "sahil@gmail.com",
       name: "Sahil Narale",
       age: "22",
+      datetime: "26-02-2025 04:03 PM",
+      duration: "2 hr",
+      category: "Anxiety",
+      fees: "Rs 2000",
       gender: "Male",
     },
     {
       email: "shreyash@gmail.com",
       name: "Shreyash Chalke",
       age: "22",
+      datetime: "26-02-2025 04:03 PM",
+      duration: "2 hr",
+      category: "Anxiety",
+      fees: "Rs 2000",
       gender: "Male",
     },
     {
       email: "Snehal@gmail.com",
       name: "Snehal Abnave",
       age: "22",
+      datetime: "26-02-2025 04:03 PM",
+      duration: "2 hr",
+      category: "Anxiety",
+      fees: "Rs 2000",
       gender: "Female",
     },
     {
       email: "shubham@gmail.com",
       name: "Shubham Upadhyay",
       age: "22",
+      datetime: "26-02-2025 04:03 PM",
+      duration: "2 hr",
+      category: "Anxiety",
+      fees: "Rs 2000",
       gender: "Male",
     },
     {
       email: "pranav@gmail.com",
       name: "Pranav Salunkhe",
       age: "21",
+      datetime: "26-02-2025 04:03 PM",
+      duration: "2 hr",
+      category: "Anxiety",
+      fees: "Rs 2000",
       gender: "Male",
     },
   ];
@@ -64,6 +84,10 @@ function Appointments() {
                   <TableHead className="text-center">Age</TableHead>
                   <TableHead>Name</TableHead>
                   <TableHead>Gender</TableHead>
+                  <TableHead>Cateogry</TableHead>
+                  <TableHead>Date & Time</TableHead>
+                  <TableHead>Duration</TableHead>
+                  <TableHead>Fees</TableHead>
                   <TableHead className="text-right px-16">Action</TableHead>
                 </TableRow>
               </TableHeader>
@@ -76,6 +100,10 @@ function Appointments() {
                     <TableCell className="text-center">{clients.age}</TableCell>
                     <TableCell>{clients.name}</TableCell>
                     <TableCell>{clients.gender}</TableCell>
+                    <TableCell>{clients.category}</TableCell>
+                    <TableCell>{clients.datetime}</TableCell>
+                    <TableCell className='text-center'>{clients.duration}</TableCell>
+                    <TableCell>{clients.fees}</TableCell>
                     <TableCell className="">
                       <div className="btns flex items-center justify-end gap-2">
                         <button className="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-700 transition">
@@ -91,8 +119,8 @@ function Appointments() {
               </TableBody>
               <TableFooter>
                 <TableRow>
-                  <TableCell colSpan={4}>Total</TableCell>
-                  <TableCell className="text-right">{clients.length}</TableCell>
+                  <TableCell colSpan={8}>Total</TableCell>
+                  <TableCell className="text-center">{clients.length}</TableCell>
                 </TableRow>
               </TableFooter>
             </Table>
@@ -101,7 +129,7 @@ function Appointments() {
         <hr />
         <div className="confirmed-appointments mb-3 shadow-md p-3">
           <div className="heading font-bold text-xl mb-4">
-            <h1>Confirmed Appointments</h1>
+            <h1>Completed Appointments</h1>
           </div>
           <div className="">
             <Table>
@@ -114,6 +142,10 @@ function Appointments() {
                   <TableHead className="text-center">Age</TableHead>
                   <TableHead>Name</TableHead>
                   <TableHead>Gender</TableHead>
+                  <TableHead>Cateogry</TableHead>
+                  <TableHead>Date & Time</TableHead>
+                  <TableHead>Duration</TableHead>
+                  <TableHead>Fees</TableHead>
                   <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
@@ -126,6 +158,10 @@ function Appointments() {
                     <TableCell className="text-center">{clients.age}</TableCell>
                     <TableCell>{clients.name}</TableCell>
                     <TableCell>{clients.gender}</TableCell>
+                    <TableCell>{clients.category}</TableCell>
+                    <TableCell>{clients.datetime}</TableCell>
+                    <TableCell className='text-center'>{clients.duration}</TableCell>
+                    <TableCell>{clients.fees}</TableCell>
                     <TableCell className="">
                       <div className="btns flex items-center justify-end gap-2">
                         <UserRoundCheck />
@@ -136,52 +172,7 @@ function Appointments() {
               </TableBody>
               <TableFooter>
                 <TableRow>
-                  <TableCell colSpan={4}>Total</TableCell>
-                  <TableCell className="text-right">{clients.length}</TableCell>
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </div>
-        </div>
-        <hr />
-        <div className="completed-appointments mb-3 shadow-md p-3">
-          <div className="heading font-bold text-xl mb-4">
-            <h1>Completed Appointments</h1>
-          </div>
-          <div className="">
-            <Table>
-              <TableCaption>
-                A list of your completed appointments.
-              </TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[100px]">Email id</TableHead>
-                  <TableHead className="text-center">Age</TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Gender</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {clients.map((clients, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">
-                      {clients.email}
-                    </TableCell>
-                    <TableCell className="text-center">{clients.age}</TableCell>
-                    <TableCell>{clients.name}</TableCell>
-                    <TableCell>{clients.gender}</TableCell>
-                    <TableCell className="text-right">
-                      <div className="btns flex items-center justify-end gap-2">
-                        <UserRoundCheck />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TableCell colSpan={4}>Total</TableCell>
+                  <TableCell colSpan={8}>Total</TableCell>
                   <TableCell className="text-right">{clients.length}</TableCell>
                 </TableRow>
               </TableFooter>

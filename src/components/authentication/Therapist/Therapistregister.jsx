@@ -10,6 +10,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { DNA } from "react-loader-spinner";
 import { BadgeCheck, User2Icon } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Therapistregister() {
   const [name, setName] = useState("");
@@ -22,6 +23,9 @@ function Therapistregister() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState("Upload Profile Photo");
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleFileChange = (event) => {
     if (event.target.files.length > 0) {
@@ -52,6 +56,7 @@ function Therapistregister() {
         });
       }
       console.log("Therapist registered:", therapist);
+      navigate("/MindMendor/therapist/")
       toast.success("Registered Suceessfully!", {
         position: "top-center",
       });
@@ -85,8 +90,15 @@ function Therapistregister() {
             method="POST"
           >
             <div className="relative">
-              <button class="container-btn-file mx-auto hover:border-0">
-                {buttonText=="Done"? <BadgeCheck className="text-[#1479ea]" />: <p className="flex"><User2Icon className="mr-2" /> <span>Upload Profile Photo</span></p> }
+              <button class="container-btn-file mx-auto hover:border-0 sm:bg-transparent">
+                {buttonText == "Done" ? (
+                  <BadgeCheck className="text-[#1479ea]" />
+                ) : (
+                  <p className="flex">
+                    <User2Icon className="mr-2" />{" "}
+                    <span>Upload Profile Photo</span>
+                  </p>
+                )}
                 <input
                   className="profilephoto"
                   name="profilephoto"

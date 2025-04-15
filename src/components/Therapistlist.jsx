@@ -28,6 +28,9 @@ function Therapistlist() {
   const handleTherapistAboutClick = (therapist) => {
     navigate("/MindMendor/Therapist/about", { state: { therapist } })
   }
+  const handleTherapistHireClick = (therapist) => {
+    navigate("/MindMendor/Therapist/hire", { state: { therapist } })
+  }
 
   const therapistItems = [
     {
@@ -149,7 +152,7 @@ function Therapistlist() {
                       <button onClick={() => handleTherapistAboutClick(item)} className="about-me">
                         About Me
                       </button>
-                      <button className="hire-me">Hire Me</button>
+                      <button onClick={() => handleTherapistHireClick(item)} className="hire-me">Hire Me</button>
                     </div>
                   </div>
                 </div>

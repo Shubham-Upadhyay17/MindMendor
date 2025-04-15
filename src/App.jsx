@@ -5,6 +5,7 @@ import Userlogin from "./components/authentication/User/Userlogin";
 import Userregister from "./components/authentication/User/Userregister";
 import Therapistregister from "./components/authentication/Therapist/Therapistregister";
 import Therapistlogin from "./components/authentication/Therapist/Therapistlogin";
+import Predictor from "./components/predictor/Predictor";
 
 import Adminhome from "./admin/components/Adminhome";
 import Login from "./admin/components/Login";
@@ -22,6 +23,8 @@ import Earnings from "./Therapist/_components/Dashboard/Earnings";
 import Patients from "./Therapist/_components/Dashboard/Patients";
 import Help from "./Therapist/_components/Dashboard/Help";
 import TherapistAbout from "./Therapist/_components/TherapistAbout/TherapistAbout";
+import TherapistHire from "./Therapist/_components/TherapistHire/TherapistHire";
+import VideoCall from "./VideoCall/Videocall";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,6 +56,14 @@ function App() {
       path: "/MindMendor/therapistregister",
       element: <Therapistregister />,
     },
+    {
+      path: "/MindMendor/predict",
+      element: <Predictor />,
+    },
+    {
+      path: "/MindMendor/meet",
+      element: <VideoCall />,
+    },
     // {
     //   path: "/MindMendor/therapist/Home",
     //   element: <TherapistDashboardLayout />,
@@ -77,6 +88,10 @@ function App() {
     {
       path: "/MindMendor/Therapist/about",
       element: <TherapistAbout />,
+    },
+    {
+      path: "/MindMendor/Therapist/hire",
+      element: <TherapistHire />,
     },
     {
       path: "/MindMendor/therapist/",
