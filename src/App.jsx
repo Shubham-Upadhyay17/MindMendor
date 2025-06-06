@@ -11,7 +11,7 @@ import Adminhome from "./admin/components/Adminhome";
 import Login from "./admin/components/Login";
 import Register from "./admin/components/Register";
 import Adminui from "./admin/components/Adminui";
-import Therapistlist from "./components/Therapistlist";
+import Therapistlist from "./components/Therapists/Page";
 
 import { ToastContainer } from "react-toastify";
 import TherapistDashboardLayout from "./Therapist/_components/TherapistDashboardLayout";
@@ -25,6 +25,9 @@ import Help from "./Therapist/_components/Dashboard/Help";
 import TherapistAbout from "./Therapist/_components/TherapistAbout/TherapistAbout";
 import TherapistHire from "./Therapist/_components/TherapistHire/TherapistHire";
 import VideoCall from "./VideoCall/Videocall";
+import Chatbot from "./components/Chatbot";
+import TherapistProfile from "./components/Therapists/[id]/Page";
+import TherapistBooking from "./components/Therapists/TherapistBooking";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +42,10 @@ function App() {
     {
       path: "/MindMendor/therapists",
       element: <Therapistlist />,
+    },
+    {
+      path: "/MindMendor/therapists/:id",
+      element: <TherapistProfile />,
     },
     {
       path: "/MindMendor/userlogin",
@@ -63,6 +70,10 @@ function App() {
     {
       path: "/MindMendor/meet",
       element: <VideoCall />,
+    },
+    {
+      path: "/MindMendor/therapists/booksession/:id",
+      element: <TherapistBooking />,
     },
     // {
     //   path: "/MindMendor/therapist/Home",
