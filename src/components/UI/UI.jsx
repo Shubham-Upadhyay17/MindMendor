@@ -145,7 +145,7 @@ function UI() {
                   <Link to="/MindMendor/therapists">Therapy Session</Link>
                 </li>
                 <li className="cursor-pointer border-b-1 px-3 hover:text-blue-600">
-                  <Link to="">Anonymous Conversation</Link>
+                  <Link to="/MindMendor/meet">Anonymous Conversation</Link>
                 </li>
               </ul>
             </div>

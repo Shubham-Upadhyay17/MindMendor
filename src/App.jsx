@@ -5,12 +5,13 @@ import Userlogin from "./components/authentication/User/Userlogin";
 import Userregister from "./components/authentication/User/Userregister";
 import Therapistregister from "./components/authentication/Therapist/Therapistregister";
 import Therapistlogin from "./components/authentication/Therapist/Therapistlogin";
+import Predictor from "./components/predictor/Predictor";
 
 import Adminhome from "./admin/components/Adminhome";
 import Login from "./admin/components/Login";
 import Register from "./admin/components/Register";
 import Adminui from "./admin/components/Adminui";
-import Therapistlist from "./components/Therapistlist";
+import Therapistlist from "./components/Therapists/Page";
 
 import { ToastContainer } from "react-toastify";
 import TherapistDashboardLayout from "./Therapist/_components/TherapistDashboardLayout";
@@ -22,6 +23,11 @@ import Earnings from "./Therapist/_components/Dashboard/Earnings";
 import Patients from "./Therapist/_components/Dashboard/Patients";
 import Help from "./Therapist/_components/Dashboard/Help";
 import TherapistAbout from "./Therapist/_components/TherapistAbout/TherapistAbout";
+import TherapistHire from "./Therapist/_components/TherapistHire/TherapistHire";
+import VideoCall from "./VideoCall/Videocall";
+import Chatbot from "./components/Chatbot";
+import TherapistProfile from "./components/Therapists/[id]/Page";
+import TherapistBooking from "./components/Therapists/TherapistBooking";
 
 function App() {
   const router = createBrowserRouter([
@@ -38,6 +44,10 @@ function App() {
       element: <Therapistlist />,
     },
     {
+      path: "/MindMendor/therapists/:id",
+      element: <TherapistProfile />,
+    },
+    {
       path: "/MindMendor/userlogin",
       element: <Userlogin />,
     },
@@ -52,6 +62,18 @@ function App() {
     {
       path: "/MindMendor/therapistregister",
       element: <Therapistregister />,
+    },
+    {
+      path: "/MindMendor/predict",
+      element: <Predictor />,
+    },
+    {
+      path: "/MindMendor/meet",
+      element: <VideoCall />,
+    },
+    {
+      path: "/MindMendor/therapists/booksession/:id",
+      element: <TherapistBooking />,
     },
     // {
     //   path: "/MindMendor/therapist/Home",
@@ -77,6 +99,10 @@ function App() {
     {
       path: "/MindMendor/Therapist/about",
       element: <TherapistAbout />,
+    },
+    {
+      path: "/MindMendor/Therapist/hire",
+      element: <TherapistHire />,
     },
     {
       path: "/MindMendor/therapist/",
